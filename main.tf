@@ -10,7 +10,7 @@ resource "null_resource" "git_push" {
   depends_on = [github_repository.repo]
 
     provisioner "local-exec" {
-     command = "echo Initializing git repository... && git init && echo # ${var.repository_name} > README.md && git add . && git commit -m \"Initial-commit\" && git remote add origin https://github.com/${var.github_owner}/${var.repository_name}.git && git branch -M main && git push -u origin main"
+     command = "echo Initializing git repository... && git init && echo # ${var.repository_name} > README.md && git add . && git commit -m \"Initial-commit\" && git remote add origin ${github_repository.repo.git_clone_url} && git branch -M main && git push -u origin main"
 
 
 
