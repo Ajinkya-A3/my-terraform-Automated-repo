@@ -1,6 +1,6 @@
 resource "github_repository" "repo" {
   name        = var.repository_name
-  description = "This repository is created using Terraform and all the actions are done through Terraform code"
+  description = var.repository_description
 
   visibility = "public"
 
